@@ -4,6 +4,7 @@ pimple/pimple
 illuminate/database
 
 davedevelopment/phpmig
+respect/validation
 paragonie/halite        (need sodium library)
 tedious/Stash           (need yaml php library)
 monolog/monolog

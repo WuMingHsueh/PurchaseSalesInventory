@@ -12,7 +12,9 @@
         "klein/klein": "^2.1",
         "pimple/pimple": "^3.2",
         "illuminate/database": "^5.8",
-        "davedevelopment/phpmig": "^1.5"
+        "davedevelopment/phpmig": "^1.5",
+        "paragonie/halite": "^4.5",
+        "respect/validation": "^1.1"
     },
 	"autoload": {
 		"psr-4": {
