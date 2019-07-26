@@ -1,6 +1,6 @@
 <?php
 
-namespace BaseTemplatePHP\Providers\Routers;
+namespace PurchaseSalesInventory\Providers\Routers;
 
 use Klein\klein;
 use Klein\Request;

@@ -1,6 +1,6 @@
 <?php
 
-namespace BaseTemplatePHP\Providers\Database;
+namespace PurchaseSalesInventory\Providers\Database;
 
 use Illuminate\Database\Capsule\Manager as DB;
 use Pimple\Container;

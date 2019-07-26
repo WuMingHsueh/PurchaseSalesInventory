@@ -1,6 +1,6 @@
 <?php
 
-namespace BaseTemplatePHP\Providers\Middleware;
+namespace PurchaseSalesInventory\Providers\Middleware;
 
 use Closure;
 use InvalidArgumentException;

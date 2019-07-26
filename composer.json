@@ -1,17 +1,23 @@
 {
-    "name": "ri3567/base-temple-php",
-    "description": "my person use php project base template for begin new php project",
+    "name": "ri3567/purchase-sales-inventory-example",
+    "description": "exercise purchase sales inventory example for my person project structure ",
     "authors": [
         {
             "name": "Wu Ming-Hsueh",
             "email": "ri3567@gmail.com"
         }
     ],
-	"require": {},
+	"require": {
+        "vlucas/phpdotenv": "^3.4",
+        "klein/klein": "^2.1",
+        "pimple/pimple": "^3.2",
+        "illuminate/database": "^5.8",
+        "davedevelopment/phpmig": "^1.5"
+    },
 	"autoload": {
 		"psr-4": {
-			"BaseTemplatePHP\\" : "src/",
-			"BaseTemplatePHP\\Providers\\": "bootstrap/Providers/"
+			"PurchaseSalesInventory\\" : "src/",
+			"PurchaseSalesInventory\\Providers\\": "bootstrap/Providers/"
 		}
 	}
 }

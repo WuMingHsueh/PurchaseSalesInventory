@@ -12,6 +12,9 @@ class %s extends Migration
     public function up()
     {
         $container = $this->getContainer();
+		DB::schema()->create('', function (Blueprint $table) {
+
+		});
     }
 
     /**
@@ -20,5 +23,7 @@ class %s extends Migration
     public function down()
     {
         $container = $this->getContainer();
+		DB::schema()->dropIfExists('');
+
     }
 }

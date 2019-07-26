@@ -1,6 +1,6 @@
 <?php
 
-namespace BaseTemplatePHP\Providers\Encryption;
+namespace PurchaseSalesInventory\Providers\Encryption;
 
 use Pimple\Container;
 use Defuse\Crypto\Key;

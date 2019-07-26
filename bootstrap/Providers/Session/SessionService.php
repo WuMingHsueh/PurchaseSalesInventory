@@ -1,6 +1,6 @@
 <?php
 
-namespace BaseTemplatePHP\Providers\Session;
+namespace PurchaseSalesInventory\Providers\Session;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;

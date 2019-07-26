@@ -1,6 +1,6 @@
 <?php
 
-namespace BaseTemplatePHP\Providers\Session;
+namespace PurchaseSalesInventory\Providers\Session;
 
 use Stash\Driver\FileSystem;
 use Stash\Driver\Sqlite;

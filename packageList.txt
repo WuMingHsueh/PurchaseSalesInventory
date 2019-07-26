@@ -6,8 +6,9 @@ illuminate/database
 davedevelopment/phpmig
 paragonie/halite        (need sodium library)
 tedious/Stash           (need yaml php library)
+monolog/monolog
 
 tightenco/collect
 league/fractal
 swiftmailer/swiftmailer
-monolog/monolog
+
