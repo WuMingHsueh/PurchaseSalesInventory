@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Receipt extends Model
 {
+	protected $table = 'Receipt';
 	protected $primaryKey = 'ReceiptID';
 	protected $fillable = [
 		'ReceiptID',

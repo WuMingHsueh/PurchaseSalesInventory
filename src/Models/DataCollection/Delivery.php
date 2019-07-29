@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Delivery extends Model
 {
+	protected $table = 'Delivery';
 	protected $primaryKey = 'DeliveryID';
 	protected $fillable = [
 		'DeliveryID',
@@ -21,4 +22,9 @@ class Delivery extends Model
 		'Comment',
 	];
 	public $timestamps = false;
+
+	public function Customer()
+	{
+		return $this->belongsTo('Customer');
+	}
 }

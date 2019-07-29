@@ -13,7 +13,7 @@ class DeliveryCreateTable extends Migration
 	{
 		DB::schema()->create('Delivery', function (Blueprint $table) {
 			$table->string('DeliveryID', 10);
-			$table->date('DeliveryDate')->default(date('Y-m-d'));
+			$table->date('DeliveryDate')->default(DB::raw('CURRENT_DATE'));
 			$table->string('CustomerID', 8);
 			$table->string('JoinMan', 20)->nullable();
 			$table->char('DeliveryType', 1)->default('1');
@@ -35,5 +35,7 @@ class DeliveryCreateTable extends Migration
 	public function down()
 	{
 		$container = $this->getContainer();
+		DB::schema()->dropIfExists('DeliveryDetails');
+		DB::schema()->dropIfExists('Delivery');
 	}
 }

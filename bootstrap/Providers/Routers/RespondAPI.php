@@ -9,6 +9,7 @@ class RespondAPI extends BaseRespond
 {
 	private $routers = [
 		// ["method" => "post", 'path' => "", "controller" => "", "responseMethod" => "", "middlewareLayers" => []],
+		["method" => "get", 'path' => "/test", "controller" => "PurchaseSalesInventory\Controllers\Test", "responseMethod" => "modelInsert", "middlewareLayers" => []],
 
 	];
 

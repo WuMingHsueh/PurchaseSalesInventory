@@ -14,7 +14,7 @@ class TransferCreateTable extends Migration
 		$container = $this->getContainer();
 		DB::schema()->create('Transfer', function (Blueprint $table) {
 			$table->string('TransferID', 10);
-			$table->date('TransferDate')->default(date('Y-m-d'));
+			$table->date('TransferDate')->default(DB::raw('CURRENT_DATE'));
 			$table->char('TransferType', 1)->default('1');
 			$table->string('Description', 20)->nullable();
 			$table->integer('Amount')->default(0);
@@ -30,6 +30,7 @@ class TransferCreateTable extends Migration
 	public function down()
 	{
 		$container = $this->getContainer();
+		DB::schema()->dropIfExists('TransferDetails');
 		DB::schema()->dropIfExists('Transfer');
 	}
 }

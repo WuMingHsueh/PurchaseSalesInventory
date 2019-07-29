@@ -12,6 +12,7 @@ class UserAuthorityCreateTable extends Migration
 	public function up()
 	{
 		$container = $this->getContainer();
+		DB::schema()->dropIfExists('UserAuthority');
 		DB::schema()->create('UserAuthority', function (Blueprint $table) {
 			$table->string('EmployeeNo', 10);
 			$table->string('ProgramID', 30);
@@ -32,5 +33,6 @@ class UserAuthorityCreateTable extends Migration
 	public function down()
 	{
 		$container = $this->getContainer();
+		DB::schema()->dropIfExists('UserAuthority');
 	}
 }

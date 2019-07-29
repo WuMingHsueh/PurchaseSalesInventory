@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
+	protected $table = 'Customer';
 	protected $primaryKey = 'CustomerID';
 	protected $fillable = [
 		'CustomerID',
@@ -23,4 +24,9 @@ class Customer extends Model
 		'Comment',
 	];
 	public $timestamps = false;
+
+	public function Delivery()
+	{
+		return $this->hasMany('Delivery');
+	}
 }

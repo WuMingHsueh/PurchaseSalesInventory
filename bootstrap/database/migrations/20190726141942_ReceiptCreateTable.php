@@ -13,7 +13,7 @@ class ReceiptCreateTable extends Migration
 	{
 		DB::schema()->create('Receipt', function (Blueprint $table) {
 			$table->string('ReceiptID', 10);
-			$table->date('ReceiptDate')->default(date('Y-m-d'));
+			$table->date('ReceiptDate')->default(DB::raw('CURRENT_DATE'));
 			$table->string('SupplierID', 8);
 			$table->string('JoinMan', 20)->nullable();
 			$table->char('ReceiptType', 1)->default('1');
@@ -35,5 +35,7 @@ class ReceiptCreateTable extends Migration
 	public function down()
 	{
 		$container = $this->getContainer();
+		DB::schema()->dropIfExists('ReceiptDetails');
+		DB::schema()->dropIfExists('Receipt');
 	}
 }

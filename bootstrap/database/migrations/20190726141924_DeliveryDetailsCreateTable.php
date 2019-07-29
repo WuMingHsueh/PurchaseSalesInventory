@@ -31,5 +31,6 @@ class DeliveryDetailsCreateTable extends Migration
 	public function down()
 	{
 		$container = $this->getContainer();
+		DB::schema()->dropIfExists('DeliveryDetails');
 	}
 }

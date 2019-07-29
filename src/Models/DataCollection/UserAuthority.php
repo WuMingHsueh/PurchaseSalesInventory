@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserAuthority extends Model
 {
+	protected $table = 'UserAuthority';
 	protected $primaryKey = ['EmployeeNo', 'ProgramID'];
 	protected $fillable = [
 		'EmployeeNo',
