@@ -31,6 +31,13 @@ return [
 		'routerStart' => getenv('APP_ROUTER_START'),
 	],
 
+	"renderer"               => [
+		'assetPath'      => getenv('APP_URL') . '/src/Views/asset/',
+		'templatePath'   => dirname(__DIR__) . '/src/Views/layouts/',
+		'componentsPath' => dirname(__DIR__) . '/src/Views/components/',
+		'contentsPath'        => dirname(__DIR__) . '/src/Views/',
+	],
+
 	// key
 	'key'                    => [
 		'path'    => $keyIniPath,

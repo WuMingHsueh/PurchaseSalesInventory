@@ -18,7 +18,7 @@ class RoutersDispatch
 		$respondAPI = new RespondAPI;
 		$respondPages = new RespondPages;
 
-		$this->initSubDirectory(); // 若專案目錄是 "sub Directory" 則加入此函數設定$_SERVER['REQUEST_URI']
+		// $this->initSubDirectory(); // 若專案目錄是 "sub Directory" 則加入此函數設定$_SERVER['REQUEST_URI']
 		$respondAPI->responds($this->container, $this->klein);
 		$respondPages->responds($this->container, $this->klein);
 		$kleinRequest = $this->initSubDirectory();

@@ -10,10 +10,11 @@
 
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 
-    <script src="../asset/js/jquery/jquery-1.8.2.min.js" type="text/javascript" ></script>
-    <link href="../asset/css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
+    <script src="<?= $this->assetPath ?>js/jquery/jquery-1.8.2.min.js" type="text/javascript" ></script>
+    <link href="<?= $this->assetPath ?>css/customize-template.css" type="text/css" media="screen, projection" rel="stylesheet" />
 
     <style>
+        #body-content { padding-top: 40px;}
     </style>
 </head>
     <body>
@@ -83,7 +84,7 @@
         <div id="body-container">
             <div id="body-content">
 
-                    <div class="body-nav body-nav-horizontal body-nav-fixed">
+                    <div class="body-nav body-nav-vertical body-nav-fixed">
                         <div class="container">
                             <ul>
                                 <li>
@@ -837,23 +838,23 @@
             </div>
         </footer>
 
-        <script src="../asset/js/bootstrap/bootstrap-transition.js" type="text/javascript" ></script>
-        <script src="../asset/js/bootstrap/bootstrap-alert.js" type="text/javascript" ></script>
-        <script src="../asset/js/bootstrap/bootstrap-modal.js" type="text/javascript" ></script>
-        <script src="../asset/js/bootstrap/bootstrap-dropdown.js" type="text/javascript" ></script>
-        <script src="../asset/js/bootstrap/bootstrap-scrollspy.js" type="text/javascript" ></script>
-        <script src="../asset/js/bootstrap/bootstrap-tab.js" type="text/javascript" ></script>
-        <script src="../asset/js/bootstrap/bootstrap-tooltip.js" type="text/javascript" ></script>
-        <script src="../asset/js/bootstrap/bootstrap-popover.js" type="text/javascript" ></script>
-        <script src="../asset/js/bootstrap/bootstrap-button.js" type="text/javascript" ></script>
-        <script src="../asset/js/bootstrap/bootstrap-collapse.js" type="text/javascript" ></script>
-        <script src="../asset/js/bootstrap/bootstrap-carousel.js" type="text/javascript" ></script>
-        <script src="../asset/js/bootstrap/bootstrap-typeahead.js" type="text/javascript" ></script>
-        <script src="../asset/js/bootstrap/bootstrap-affix.js" type="text/javascript" ></script>
-        <script src="../asset/js/bootstrap/bootstrap-datepicker.js" type="text/javascript" ></script>
-        <script src="../asset/js/jquery/jquery-tablesorter.js" type="text/javascript" ></script>
-        <script src="../asset/js/jquery/jquery-chosen.js" type="text/javascript" ></script>
-        <script src="../asset/js/jquery/virtual-tour.js" type="text/javascript" ></script>
+        <script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-transition.js" type="text/javascript" ></script>
+        <script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-alert.js" type="text/javascript" ></script>
+        <script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-modal.js" type="text/javascript" ></script>
+        <script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-dropdown.js" type="text/javascript" ></script>
+        <script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-scrollspy.js" type="text/javascript" ></script>
+        <script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-tab.js" type="text/javascript" ></script>
+        <script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-tooltip.js" type="text/javascript" ></script>
+        <script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-popover.js" type="text/javascript" ></script>
+        <script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-button.js" type="text/javascript" ></script>
+        <script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-collapse.js" type="text/javascript" ></script>
+        <script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-carousel.js" type="text/javascript" ></script>
+        <script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-typeahead.js" type="text/javascript" ></script>
+        <script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-affix.js" type="text/javascript" ></script>
+        <script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-datepicker.js" type="text/javascript" ></script>
+        <script src="<?= $this->assetPath ?>js/jquery/jquery-tablesorter.js" type="text/javascript" ></script>
+        <script src="<?= $this->assetPath ?>js/jquery/jquery-chosen.js" type="text/javascript" ></script>
+        <script src="<?= $this->assetPath ?>js/jquery/virtual-tour.js" type="text/javascript" ></script>
         <script type="text/javascript">
         $(function() {
             $('#sample-table').tablesorter();
@@ -862,5 +863,5 @@
         });
     </script>
 
-	</body>
+    </body>
 </html>
