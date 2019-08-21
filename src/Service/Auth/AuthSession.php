@@ -11,36 +11,25 @@ class AuthSession
 	private $db;
 	private $config;
 
-	private $loginData;
-
 	public function __construct(DB $db, array $config)
 	{
 		$this->db = $db;
 		$this->config = $config;
 	}
 
-	public function getLoginData()
-	{
-		return ($this->isLogind()) ? $this->loginData[\session_id()] : false;
-	}
-
 	public function storeLogind()
 	{
-		$this->loginData[\session_id()] = [
-			"user"  => "",
-			"token" => base64_encode(\random_bytes(16))
-		];
+		$_SESSION['user'] = "";
+		$_SESSION['token'] = base64_encode(\random_bytes(16));
 	}
 
 	public function isLogind(): bool
 	{
-		return (isset($this->loginData) and
-			isset($this->loginData[\session_id()]) and
-			isset($this->loginData[\session_id()]['user']));
+		return isset($_SESSION['user']) and isset($_SESSION['token']);
 	}
 
 	public function logout()
 	{
-		unset($this->loginData);
+		session_destroy();
 	}
 }

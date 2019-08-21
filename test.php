@@ -1,6 +1,11 @@
 <?php
-require __DIR__ . "/vendor/autoload.php";
-
+ini_set('session.save_handler', 'redis');
+ini_set('session.save_path', "tcp://localhost:6379");
 session_start();
-require __DIR__ . "/bootstrap/dependencies.php";
-require __DIR__ . "/bootstrap/routerKlein.php";
+
+$count = $_SESSION['count'] ?? 1;
+
+print session_save_path() . "<br>";
+print session_id() . "<br>";
+print $count;
+$_SESSION['count'] = ++$count;

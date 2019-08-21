@@ -19,6 +19,5 @@
 	</div>
 	<footer class="signin-actions">
 		<input class="btn btn-primary" type='submit' id="submit" value='登入' />
-		<?php var_dump($this->tokenSession) ?>
 	</footer>
 </form>

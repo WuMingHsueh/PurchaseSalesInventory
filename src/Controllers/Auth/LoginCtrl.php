@@ -3,10 +3,11 @@
 namespace PurchaseSalesInventory\Controllers\Auth;
 
 use Pimple\Container;
+use PurchaseSalesInventory\Models\DataCollection\XINUser;
 
 class LoginCtrl
 {
-	private $AuthService;
+	private $authService;
 	private $csrf;
 	private $db;
 	private $page;
@@ -16,7 +17,7 @@ class LoginCtrl
 	{
 		$this->authService = $container['AuthService'];
 		$this->db = $container['db'];
-		$this->csrf = $container['csrf'];
+		$this->csrf = $container['CsrfService'];
 		$this->page = $container['page'];
 		$this->environment = $container['settings'];
 	}
@@ -27,8 +28,7 @@ class LoginCtrl
 		$this->page->assetPath = $this->environment['renderer']['assetPath'];
 		$this->page->componentsPath = $this->environment['renderer']['componentsPath'];
 		$this->page->title = "登入";
-		$this->page->_token = $this->csrf->generateCsrfToken();
-		$this->page->tokenSession = $this->csrf->getTokenSession();
+		$this->page->_token = $this->csrf->token();
 		$this->page->layout($this->environment['renderer']['templatePath'] . "auth.php");
 		$this->page->render($this->environment['renderer']['contentsPath'] . "auth/signIn.php");
 	}
@@ -40,11 +40,11 @@ class LoginCtrl
 
 	public function logoutProcess($request, $response)
 	{
+		$this->authService->logout();
 		$this->page->routerRoot = $this->environment['app']['routerStart'];
 		$this->page->assetPath = $this->environment['renderer']['assetPath'];
 		$this->page->componentsPath = $this->environment['renderer']['componentsPath'];
 		$this->page->title = "登出";
-		$this->page->tokenSession = $this->csrf->getTokenSession();
 		$this->page->layout($this->environment['renderer']['templatePath'] . "auth.php");
 		$this->page->render($this->environment['renderer']['contentsPath'] . "auth/signIn.php");
 	}

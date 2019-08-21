@@ -9,25 +9,25 @@ use Closure;
 
 class CsrfFilter implements IMiddlewareLayer
 {
-	private $csrfProvider;
+	private $csrf;
 	private $page;
 	private $environment;
 
 	public function __construct(Container $container)
 	{
-		$this->csrfProvider = $container['csrf'];
+		$this->csrf = $container['CsrfService'];
 		$this->page = $container['page'];
 		$this->environment = $container['settings'];
 	}
 
 	public function handle($request, Closure $next, $response)
 	{
-		if ($this->csrfProvider->verifyCsrf($request->_token)) {
+		if ($this->csrf->verfiyToken($request->_token)) {
 			return $next($request, $response);
 		} else {
 			$options = [
 				'componentPath' => 'csrf.php',
-				'data'         => $this->csrfProvider->getTokenSession()
+				'data'         => $this->csrf->getTokenSession()
 			];
 			throw new PageException("Csrf forbidden", 403, null, $options);
 		}

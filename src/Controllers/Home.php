@@ -11,11 +11,6 @@ class Home
 
 	public function __construct(Container $container)
 	{
-		debug_zval_dump($container['csrf']);
-		echo "<hr>";
-		echo "<hr>";
-		echo "<hr>";
-		$this->csrf = $container['csrf'];
 		$this->page = $container['page'];
 		$this->environment = $container['settings'];
 	}
@@ -39,17 +34,22 @@ class Home
 		$this->page->render("");
 	}
 
-	public function tokenGenerate($request, $response)
+	public function demo($request, $response)
 	{
-		debug_zval_dump($this->csrf);
-		echo "<hr>";
-		echo "<hr>";
-		echo $this->csrf->generateCsrfToken() . "<br>";
-		var_dump($this->csrf->getTokenSession());
-	}
-
-	public function showToken($request, $response)
-	{
-		var_dump($this->csrf->getTokenSession());
+		$layout = [
+			"custom"        => "custom-view.php",
+			"dashboard"     => "dashboard.php",
+			"horizontalFix" => "demo-horizontal-fixed-nav.php",
+			"horizontal"    => "demo-horizontal-nav.php",
+			"verticalFix"   => "demo-vertical-fixed-nav.php",
+			"vertical"      => "demo-vertical-nav.php",
+			"form"          => "form.php",
+			"login"         => "login.php"
+		];
+		$this->page->routerRoot = $this->environment['app']['routerStart'];
+		$this->page->assetPath = $this->environment['renderer']['assetPath'];
+		$this->page->componentsPath = $this->environment['renderer']['componentsPath'];
+		$this->page->layout($this->environment['renderer']['templatePath'] . ($layout[$request->page] ?? "dashboard.php"));
+		$this->page->render("");
 	}
 }
