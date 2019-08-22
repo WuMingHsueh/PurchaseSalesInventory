@@ -1,4 +1,7 @@
 <?php
+
+use PurchaseSalesInventory\Providers\Exception\PageException;
+
 $routersPages = [
 	// ["method" => "get", 'path' => "", "controller" => "", "responseMethod" => "", "viewLayout" => "", "viewRender" => "", "middlewareLayers" => []],
 	["method" => "get", 'path' => "/demo/[:page]", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "demo", "middlewareLayers" => []],
@@ -35,25 +38,15 @@ foreach ($routersPages as $routerPage) {
 			$service->routerRoot = $container['settings']['app']['routerStart'];
 			$service->assetPath = $container['settings']['renderer']['assetPath'];
 			$service->componentsPath = $container['settings']['renderer']['componentsPath'];
-			$service->code = $e->getCode();
 			$service->layout($container['settings']['renderer']['templatePath'] . "error.php");
 			$service->render($container['settings']['renderer']['componentsPath'] . 'errors/' . $e->getComponentPath(), [
-				'code'    => $e->getCode(),
-				'message' => $e->getMessage(),
-				'data'    => $e->getData()
-			]);
-		} catch (\Throwable $e) {
-			$service->routerRoot = $container['settings']['app']['routerStart'];
-			$service->assetPath = $container['settings']['renderer']['assetPath'];
-			$service->componentsPath = $container['settings']['renderer']['componentsPath'];
-			$service->code = $e->getCode();
-			$service->layout($container['settings']['renderer']['templatePath'] . "error.php");
-			$service->render($container['settings']['renderer']['componentsPath'] . "errors/throwable.php", [
-				'code'    => $e->getCode(),
-				'message' => $e->getMessage(),
-				'file'    => $e->getFile(),
-				'line'    => $e->getLine(),
-				'trace'      => $e->getTrace()
+				'code'      => $e->getCode(),
+				'message'   => $e->getMessage(),
+				'file'      => $e->getFile(),
+				'line'      => $e->getLine(),
+				'trace'     => $e->getTraceAsString(),
+				'component' => $e->getComponentPath(),
+				'data'      => $e->getData()
 			]);
 		}
 	});

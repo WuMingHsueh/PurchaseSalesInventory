@@ -3,6 +3,9 @@
 namespace PurchaseSalesInventory\Service\Auth;
 
 use Illuminate\Database\Capsule\Manager as DB;
+use ParagonIE\Halite\KeyFactory;
+use ParagonIE\Halite\Password;
+use ParagonIE\Halite\HiddenString;
 use PurchaseSalesInventory\Models\DataCollection\XINUser;
 use PurchaseSalesInventory\Models\DataCollection\UserAuthority;
 
@@ -17,9 +20,23 @@ class AuthSession
 		$this->config = $config;
 	}
 
-	public function storeLogind()
+	public function passwordHash($password): string
 	{
-		$_SESSION['user'] = "";
+		$key = KeyFactory::loadEncryptionKey($this->config['key']['path']);
+		return Password::hash(new HiddenString($password), $key);
+	}
+
+	public function verifyPassword($account, $password): bool
+	{
+		$key = KeyFactory::loadEncryptionKey($this->config['key']['path']);
+		$employee = XINUser::where('EmployeeName', $account)->select('EmployeeName', 'PasswordCode')->first();
+		return (!empty($employee) and
+			Password::verify(new HiddenString($password), $employee->password, $key));
+	}
+
+	public function storeLogind($account)
+	{
+		$_SESSION['user'] = $account;
 		$_SESSION['token'] = base64_encode(\random_bytes(16));
 	}
 

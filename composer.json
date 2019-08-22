@@ -15,7 +15,8 @@
         "davedevelopment/phpmig": "^1.5",
         "paragonie/halite": "^4.5",
         "respect/validation": "^1.1",
-        "fzaninotto/faker": "^1.8"
+        "fzaninotto/faker": "^1.8",
+        "doctrine/dbal": "^2.9"
     },
 	"autoload": {
 		"psr-4": {

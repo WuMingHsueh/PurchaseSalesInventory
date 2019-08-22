@@ -11,11 +11,12 @@ class PageException extends \Exception
 		$message,
 		$code = 500,
 		Exception $previous = null,
-		$options = ['componentPath' => "", "data" => []]
+		$data = null,
+		$componentPath = 'errorShow.php'
 	) {
-		parent::__construct($message, $code, $previous);
-		$this->data = $options['data'];
-		$this->componentPath = $options['componentPath'];
+		parent::__construct($message, @$code, $previous);
+		$this->componentPath = $componentPath;
+		$this->data = $data;
 	}
 
 	public function getComponentPath()

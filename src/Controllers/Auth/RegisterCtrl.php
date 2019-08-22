@@ -4,6 +4,7 @@ namespace PurchaseSalesInventory\Controllers\Auth;
 
 use Pimple\Container;
 use PurchaseSalesInventory\Models\DataCollection\XINUser;
+use PurchaseSalesInventory\Providers\Exception\PageException;
 
 class RegisterCtrl
 {
@@ -34,5 +35,14 @@ class RegisterCtrl
 	}
 
 	public function registerProcess($request, $response)
-	{ }
+	{
+		try {
+			$input = $request->params();
+			$input['PasswordCode'] = $this->authService->passwordHash($input['PasswordCode']);
+			XINUser::create($input);
+		} catch (\Throwable $th) {
+			throw new PageException($th->getMessage(), $th->getCode(), null, $input);
+		}
+		$response->redirect($this->environment['app']['routerStart'] . '/auth/sign-in')->send();
+	}
 }

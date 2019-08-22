@@ -24,51 +24,45 @@
 		<div id="body-content">
 			<div class='container'>
 				<div class="signin-row row">
-					<div class="span4"></div>
-					<div class="span8">
+					<div class="span16">
 						<div class="well well-small well-shadow">
-							<legend class="lead">錯誤訊息欄 - <?= $this->code ?? 200 ?></legend>
-							<?= $this->message ?> <br>
+							<legend class="lead">錯誤訊息欄 - error code: <?= $this->code ?? 200 ?></legend>
+							<div class="alert alert-block alert-danger">
+								<?= $this->message ?> <br>
+							</div>
 							<?= $this->yieldView() ?>
 						</div>
 					</div>
-					<div class="span8"></div>
 				</div>
-				<!--<div class="span4">
-
-                </div>-->
 			</div>
-
-
 		</div>
-	</div>
 
-	<?= $this->partial($this->footerPath ?? $this->componentsPath . "footer.php") ?>
+		<?= $this->partial($this->footerPath ?? $this->componentsPath . "footer.php") ?>
 
-	<script type="text/javascript">
-		$(function() {
-			document.forms['loginForm'].elements['j_username'].focus();
-			$('body').addClass('pattern pattern-sandstone');
-			$("[rel=tooltip]").tooltip();
-		});
-	</script>
-	<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-transition.js" type="text/javascript"></script>
-	<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-alert.js" type="text/javascript"></script>
-	<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-modal.js" type="text/javascript"></script>
-	<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-dropdown.js" type="text/javascript"></script>
-	<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-scrollspy.js" type="text/javascript"></script>
-	<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-tab.js" type="text/javascript"></script>
-	<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-tooltip.js" type="text/javascript"></script>
-	<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-popover.js" type="text/javascript"></script>
-	<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-button.js" type="text/javascript"></script>
-	<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-collapse.js" type="text/javascript"></script>
-	<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-carousel.js" type="text/javascript"></script>
-	<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-typeahead.js" type="text/javascript"></script>
-	<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-affix.js" type="text/javascript"></script>
-	<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-datepicker.js" type="text/javascript"></script>
-	<script src="<?= $this->assetPath ?>js/jquery/jquery-tablesorter.js" type="text/javascript"></script>
-	<script src="<?= $this->assetPath ?>js/jquery/jquery-chosen.js" type="text/javascript"></script>
-	<script src="<?= $this->assetPath ?>js/jquery/virtual-tour.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(function() {
+				document.forms['loginForm'].elements['j_username'].focus();
+				$('body').addClass('pattern pattern-sandstone');
+				$("[rel=tooltip]").tooltip();
+			});
+		</script>
+		<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-transition.js" type="text/javascript"></script>
+		<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-alert.js" type="text/javascript"></script>
+		<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-modal.js" type="text/javascript"></script>
+		<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-dropdown.js" type="text/javascript"></script>
+		<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-scrollspy.js" type="text/javascript"></script>
+		<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-tab.js" type="text/javascript"></script>
+		<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-tooltip.js" type="text/javascript"></script>
+		<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-popover.js" type="text/javascript"></script>
+		<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-button.js" type="text/javascript"></script>
+		<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-collapse.js" type="text/javascript"></script>
+		<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-carousel.js" type="text/javascript"></script>
+		<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-typeahead.js" type="text/javascript"></script>
+		<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-affix.js" type="text/javascript"></script>
+		<script src="<?= $this->assetPath ?>js/bootstrap/bootstrap-datepicker.js" type="text/javascript"></script>
+		<script src="<?= $this->assetPath ?>js/jquery/jquery-tablesorter.js" type="text/javascript"></script>
+		<script src="<?= $this->assetPath ?>js/jquery/jquery-chosen.js" type="text/javascript"></script>
+		<script src="<?= $this->assetPath ?>js/jquery/virtual-tour.js" type="text/javascript"></script>
 
 
 </body>

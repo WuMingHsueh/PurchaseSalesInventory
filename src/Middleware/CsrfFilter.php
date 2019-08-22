@@ -25,11 +25,7 @@ class CsrfFilter implements IMiddlewareLayer
 		if ($this->csrf->verfiyToken($request->_token)) {
 			return $next($request, $response);
 		} else {
-			$options = [
-				'componentPath' => 'csrf.php',
-				'data'         => $this->csrf->getTokenSession()
-			];
-			throw new PageException("Csrf forbidden", 403, null, $options);
+			throw new PageException("Csrf fuck forbidden: ", 403, null,  $this->csrf->getTokenSession());
 		}
 	}
 }
