@@ -29,7 +29,7 @@ class AuthSession
 	public function verifyPassword($account, $password): bool
 	{
 		$key = KeyFactory::loadEncryptionKey($this->config['key']['path']);
-		$employee = XINUser::where('EmployeeName', $account)->select('EmployeeName', 'PasswordCode')->first();
+		$employee = XINUser::where('EmployeeNo', $account)->select('EmployeeNo', 'PasswordCode as password')->first();
 		return (!empty($employee) and
 			Password::verify(new HiddenString($password), $employee->password, $key));
 	}
@@ -42,7 +42,7 @@ class AuthSession
 
 	public function isLogind(): bool
 	{
-		return isset($_SESSION['user']) and isset($_SESSION['token']);
+		return (isset($_SESSION['user']) and isset($_SESSION['token']));
 	}
 
 	public function logout()

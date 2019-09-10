@@ -4,6 +4,7 @@ namespace PurchaseSalesInventory\Controllers\Auth;
 
 use Pimple\Container;
 use PurchaseSalesInventory\Models\DataCollection\XINUser;
+use PurchaseSalesInventory\Providers\Exception\PageException;
 
 class LoginCtrl
 {
@@ -35,6 +36,16 @@ class LoginCtrl
 
 	public function LoginProcess($request, $response)
 	{
+		try {
+			$input = $request->params();
+			if ($this->authService->verifyPassword($input['username'], $input['password'])) {
+				$this->authService->storeLogind($input['username']);
+			} else {
+				throw new PageException("登入失敗", 403, null, $input);
+			}
+		} catch (\Throwable $th) {
+			throw new PageException($th->getMessage(), $th->getCode(), null, $input);
+		}
 		$response->redirect($this->environment['app']['routerStart'])->send();
 	}
 

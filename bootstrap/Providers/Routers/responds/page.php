@@ -5,13 +5,13 @@ use PurchaseSalesInventory\Providers\Exception\PageException;
 $routersPages = [
 	// ["method" => "get", 'path' => "", "controller" => "", "responseMethod" => "", "viewLayout" => "", "viewRender" => "", "middlewareLayers" => []],
 	["method" => "get", 'path' => "/demo/[:page]", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "demo", "middlewareLayers" => []],
-	["method" => "get", 'path' => "", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "index", "middlewareLayers" => []],
+	["method" => "get", 'path' => "", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "index", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\Auth\Logined"]],
 	["method" => "get", 'path' => "/error", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "error", "middlewareLayers" => []],
-	["method" => "get", 'path' => "/auth/sign-in", "controller" => "PurchaseSalesInventory\Controllers\Auth\LoginCtrl", "responseMethod" => "loginPage", "middlewareLayers" => []],
-	["method" => "post", 'path' => "/auth/sign-in", "controller" => "PurchaseSalesInventory\Controllers\Auth\LoginCtrl", "responseMethod" => "loginProcess", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\CsrfFilter"]],
-	["method" => "get", 'path' => "/auth/sign-out", "controller" => "PurchaseSalesInventory\Controllers\Auth\LoginCtrl", "responseMethod" => "logoutProcess", "middlewareLayers" => []],
-	["method" => "get", 'path' => "/auth/sign-up", "controller" => "PurchaseSalesInventory\Controllers\Auth\RegisterCtrl", "responseMethod" => "registerPage", "middlewareLayers" => []],
-	["method" => "post", 'path' => "/auth/sign-up", "controller" => "PurchaseSalesInventory\Controllers\Auth\RegisterCtrl", "responseMethod" => "registerProcess", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\CsrfFilter"]],
+	["method" => "get", 'path' => "/auth/sign-in", "controller" => "PurchaseSalesInventory\Controllers\Auth\LoginCtrl", "responseMethod" => "loginPage", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\Auth\Logouted"]],
+	["method" => "post", 'path' => "/auth/sign-in", "controller" => "PurchaseSalesInventory\Controllers\Auth\LoginCtrl", "responseMethod" => "loginProcess", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\CsrfFilter", "PurchaseSalesInventory\Middleware\Auth\Logouted"]],
+	["method" => "get", 'path' => "/auth/sign-out", "controller" => "PurchaseSalesInventory\Controllers\Auth\LoginCtrl", "responseMethod" => "logoutProcess", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\Auth\Logined"]],
+	["method" => "get", 'path' => "/auth/sign-up", "controller" => "PurchaseSalesInventory\Controllers\Auth\RegisterCtrl", "responseMethod" => "registerPage", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\Auth\Logouted"]],
+	["method" => "post", 'path' => "/auth/sign-up", "controller" => "PurchaseSalesInventory\Controllers\Auth\RegisterCtrl", "responseMethod" => "registerProcess", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\CsrfFilter", "PurchaseSalesInventory\Middleware\Auth\Logouted"]],
 
 ];
 

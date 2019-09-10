@@ -8,11 +8,13 @@ class Home
 {
 	private $page;
 	private $environment;
+	private $authService;
 
 	public function __construct(Container $container)
 	{
 		$this->page = $container['page'];
 		$this->environment = $container['settings'];
+		$this->authService = $container['AuthService'];
 	}
 
 	public function index($request, $response)
@@ -20,6 +22,7 @@ class Home
 		$this->page->routerRoot = $this->environment['app']['routerStart'];
 		$this->page->assetPath = $this->environment['renderer']['assetPath'];
 		$this->page->componentsPath = $this->environment['renderer']['componentsPath'];
+		$this->page->isLogined = $this->authService->isLogind();
 		$this->page->layout($this->environment['renderer']['templatePath'] . "default.php");
 		$this->page->render($this->environment['renderer']['contentsPath'] . "home/dashborad.php");
 	}
