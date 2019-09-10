@@ -6,6 +6,7 @@ $routersPages = [
 	// ["method" => "get", 'path' => "", "controller" => "", "responseMethod" => "", "viewLayout" => "", "viewRender" => "", "middlewareLayers" => []],
 	["method" => "get", 'path' => "/demo/[:page]", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "demo", "middlewareLayers" => []],
 	["method" => "get", 'path' => "", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "index", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\Auth\Logined"]],
+	["method" => "get", 'path' => "/welcome", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "welcome", "middlewareLayers" => []],
 	["method" => "get", 'path' => "/error", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "error", "middlewareLayers" => []],
 	["method" => "get", 'path' => "/auth/sign-in", "controller" => "PurchaseSalesInventory\Controllers\Auth\LoginCtrl", "responseMethod" => "loginPage", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\Auth\Logouted"]],
 	["method" => "post", 'path' => "/auth/sign-in", "controller" => "PurchaseSalesInventory\Controllers\Auth\LoginCtrl", "responseMethod" => "loginProcess", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\CsrfFilter", "PurchaseSalesInventory\Middleware\Auth\Logouted"]],

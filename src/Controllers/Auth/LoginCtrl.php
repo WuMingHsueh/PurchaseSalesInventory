@@ -52,11 +52,6 @@ class LoginCtrl
 	public function logoutProcess($request, $response)
 	{
 		$this->authService->logout();
-		$this->page->routerRoot = $this->environment['app']['routerStart'];
-		$this->page->assetPath = $this->environment['renderer']['assetPath'];
-		$this->page->componentsPath = $this->environment['renderer']['componentsPath'];
-		$this->page->title = "登出";
-		$this->page->layout($this->environment['renderer']['templatePath'] . "auth.php");
-		$this->page->render($this->environment['renderer']['contentsPath'] . "auth/signIn.php");
+		$response->redirect($this->environment['app']['routerStart'] . "/welcome")->send();
 	}
 }

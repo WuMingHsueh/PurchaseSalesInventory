@@ -37,6 +37,15 @@ class Home
 		$this->page->render("");
 	}
 
+	public function welcome($request, $response)
+	{
+		$this->page->routerRoot = $this->environment['app']['routerStart'];
+		$this->page->assetPath = $this->environment['renderer']['assetPath'];
+		$this->page->componentsPath = $this->environment['renderer']['componentsPath'];
+		$this->page->layout($this->environment['renderer']['contentsPath'] . "home/welcome.php");
+		$this->page->render("");
+	}
+
 	public function demo($request, $response)
 	{
 		$layout = [

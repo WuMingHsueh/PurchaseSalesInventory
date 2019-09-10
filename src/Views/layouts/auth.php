@@ -41,7 +41,7 @@
 					<div class="span8">
 						<div class="well well-small well-shadow">
 							<legend class="lead">額外訊息欄</legend>
-
+							訪客請使用 guest / guest 帳密登入
 						</div>
 					</div>
 					<div class="span8"></div>
