@@ -13,15 +13,21 @@
   <body>
     <h1>作品：進銷存系統</h1>
 	<div class="alert alert-primary" role="alert">
-		作品簡報
+		作品簡報:
+		<a href="<?= $this->routerRoot . '/download?filename=introduction.pptx' ?>" class="alert-link">
+			下載
+		</a>
 	</div>
 	<div class="alert alert-warning" role="alert">
-		作品原始碼
+		作品原始碼:
+		<a href="https://github.com/WuMingHsueh/PurchaseSalesInventory" class="alert-link">
+			github 超連結
+		</a>
 	</div>
 	<div class="alert alert-light" role="alert">
 		<a href="<?= $this->routerRoot . "/auth/sign-in"?>" class="btn btn-success btn-lg active">登入使用</a>
 	</div>
-	<img src="..." alt="系統畫面" class="rounded-lg">
+	<img src="<?= $this->routerRoot . '/image?filename=demo.png'?>" alt="系統畫面" class="img-fluid">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

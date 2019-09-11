@@ -56,6 +56,7 @@ return [
 	'warehouse' => [
 		'path'   => $warehousePath,
 		'upload' => $warehousePath . 'upload' . DS,
+		'other'  => $warehousePath . 'other' . DS,
 	],
 
 	// Monolog settings

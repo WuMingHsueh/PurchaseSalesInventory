@@ -1,11 +1,19 @@
 <?php
-ini_set('session.save_handler', 'redis');
-ini_set('session.save_path', "tcp://localhost:6379");
-session_start();
+require __DIR__ . "/vendor/autoload.php";
+$setting = require  __DIR__ . "/bootstrap/settings.php";
+$file = $setting['warehouse']['other'] . "example.pptx";
 
-$count = $_SESSION['count'] ?? 1;
-
-print session_save_path() . "<br>";
-print session_id() . "<br>";
-print $count;
-$_SESSION['count'] = ++$count;
+header('Content-Description: File Transfer');
+header('Content-Type: application/octet-stream');
+header('Content-Disposition: attachment; filename='.basename($file));
+header('Content-Transfer-Encoding: binary');
+header('Expires: 0');
+header('Cache-Control: must-revalidate');
+header('Pragma: public');
+header('Content-Length: ' . filesize($file));
+if (file_exists($file)) {
+	ob_clean();
+	flush();
+	readfile($file);
+	exit;
+}

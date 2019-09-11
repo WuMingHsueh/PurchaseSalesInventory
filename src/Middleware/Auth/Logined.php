@@ -25,7 +25,8 @@ class Logined implements IMiddlewareLayer {
 		if ($this->auth->isLogind()) {
 			return $next($request, $response);
 		} else {
-			throw new PageException("Your need to Login to access: ", 403, null,  @$_SESSION['user']);
+			$response->redirect($this->environment['app']['routerStart'] . "/welcome")->send();
+			// throw new PageException("Your need to Login to access: ", 403, null,  @$_SESSION['user']);
 		}
 	}
 }

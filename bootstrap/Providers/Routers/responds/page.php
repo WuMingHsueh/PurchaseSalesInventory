@@ -5,6 +5,8 @@ use PurchaseSalesInventory\Providers\Exception\PageException;
 $routersPages = [
 	// ["method" => "get", 'path' => "", "controller" => "", "responseMethod" => "", "viewLayout" => "", "viewRender" => "", "middlewareLayers" => []],
 	["method" => "get", 'path' => "/demo/[:page]", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "demo", "middlewareLayers" => []],
+	["method" => "get", 'path' => "/download", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "downloadOther", "middlewareLayers" => []],
+	["method" => "get", 'path' => "/image", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "getImage", "middlewareLayers" => []],
 	["method" => "get", 'path' => "", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "index", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\Auth\Logined"]],
 	["method" => "get", 'path' => "/welcome", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "welcome", "middlewareLayers" => []],
 	["method" => "get", 'path' => "/error", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "error", "middlewareLayers" => []],

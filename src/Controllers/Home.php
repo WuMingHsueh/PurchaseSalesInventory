@@ -3,6 +3,7 @@
 namespace PurchaseSalesInventory\Controllers;
 
 use Pimple\Container;
+use PurchaseSalesInventory\Providers\Exception\PageException;
 
 class Home
 {
@@ -63,5 +64,35 @@ class Home
 		$this->page->componentsPath = $this->environment['renderer']['componentsPath'];
 		$this->page->layout($this->environment['renderer']['templatePath'] . ($layout[$request->page] ?? "dashboard.php"));
 		$this->page->render("");
+	}
+
+	public function downloadOther($request, $response)
+	{
+		$path = $this->environment['warehouse']['other'] . $request->paramsGet()['filename'];
+		if (\file_exists($path)) {
+			return $response->file($path);
+		} else {
+			throw new PageException("file path object not file can't open: ", 404, null,  $path);
+		}
+	}
+
+	public function getImage($request, $response)
+	{
+		$path = $this->environment['warehouse']['upload'] . $request->paramsGet()['filename'];
+		if (\file_exists($path)) {
+			$extension = explode('.', $request->paramsGet()['filename'])[1];
+			$ctype = [
+				'gif' => 'image/gif',
+				'png' => 'image/png',
+				'jpg' => 'image/jpg',
+				'jpeg' => 'image/jpeg',
+			];
+			header('Content-type: '. $ctype[$extension]);
+			readfile($path);
+			return ;
+		} else {
+			throw new PageException("file path object not file can't open: ", 404, null,  $path);
+		}
+
 	}
 }
