@@ -4,7 +4,7 @@ namespace PurchaseSalesInventory\Providers\Routers;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
-use Klein\klein;
+use Klein\Klein;
 use Klein\Request;
 
 class KleinProvider implements ServiceProviderInterface
@@ -19,7 +19,7 @@ class KleinProvider implements ServiceProviderInterface
 	 */
 	public function register(Container $container)
 	{
-		$klein = new klein;
+		$klein = new Klein;
 
 		$responds = glob(__DIR__ . '/responds/*.php');
 		foreach ($responds as $respond) {
