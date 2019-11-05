@@ -1,6 +1,6 @@
 <?php
-ini_set('session.save_handler', 'redis');
-ini_set('session.save_path', "tcp://localhost:6379");
+// ini_set('session.save_handler', 'redis');
+// ini_set('session.save_path', "tcp://localhost:6379");
 
 require __DIR__ . "/vendor/autoload.php";
 
