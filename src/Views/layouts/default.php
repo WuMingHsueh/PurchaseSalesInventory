@@ -40,7 +40,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="#">
+							<a href="<?= $this->routerRoot ?>/page/customers/list">
 								<i class="icon-map-marker icon-large"></i> 客戶
 							</a>
 						</li>
@@ -107,7 +107,7 @@
 			$(".chosen").chosen();
 		});
 	</script>
-
+	<?php empty($this->jsPath) ?: $this->partial($this->jsPath); ?>
 </body>
 
 </html>

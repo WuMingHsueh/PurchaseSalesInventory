@@ -4,18 +4,25 @@ use PurchaseSalesInventory\Providers\Exception\PageException;
 
 $routersPages = [
 	// ["method" => "get", 'path' => "", "controller" => "", "responseMethod" => "", "viewLayout" => "", "viewRender" => "", "middlewareLayers" => []],
-	["method" => "get", 'path' => "/demo/[:page]", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "demo", "middlewareLayers" => []],
+	["method" => "get", 'path' => "/demo/[:page]?", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "demo", "middlewareLayers" => []],
+	
 	["method" => "get", 'path' => "/download", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "downloadOther", "middlewareLayers" => []],
 	["method" => "get", 'path' => "/image", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "getImage", "middlewareLayers" => []],
 	["method" => "get", 'path' => "", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "index", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\Auth\Logined"]],
 	["method" => "get", 'path' => "/welcome", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "welcome", "middlewareLayers" => []],
 	["method" => "get", 'path' => "/error", "controller" => "PurchaseSalesInventory\Controllers\Home", "responseMethod" => "error", "middlewareLayers" => []],
+	
 	["method" => "get", 'path' => "/auth/sign-in", "controller" => "PurchaseSalesInventory\Controllers\Auth\LoginCtrl", "responseMethod" => "loginPage", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\Auth\Logouted"]],
 	["method" => "post", 'path' => "/auth/sign-in", "controller" => "PurchaseSalesInventory\Controllers\Auth\LoginCtrl", "responseMethod" => "loginProcess", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\CsrfFilter", "PurchaseSalesInventory\Middleware\Auth\Logouted"]],
 	["method" => "get", 'path' => "/auth/sign-out", "controller" => "PurchaseSalesInventory\Controllers\Auth\LoginCtrl", "responseMethod" => "logoutProcess", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\Auth\Logined"]],
 	["method" => "get", 'path' => "/auth/sign-up", "controller" => "PurchaseSalesInventory\Controllers\Auth\RegisterCtrl", "responseMethod" => "registerPage", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\Auth\Logouted"]],
 	["method" => "post", 'path' => "/auth/sign-up", "controller" => "PurchaseSalesInventory\Controllers\Auth\RegisterCtrl", "responseMethod" => "registerProcess", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\CsrfFilter", "PurchaseSalesInventory\Middleware\Auth\Logouted"]],
-
+	
+	
+	["method" => "get", 'path' => "/page/customers/list", "controller" => "PurchaseSalesInventory\Controllers\Customers\CustomersCtrl", "responseMethod" => "pageCustomersList", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\Auth\Logined"]],
+	["method" => "get", 'path' => "/page/customers/single", "controller" => "PurchaseSalesInventory\Controllers\Customers\CustomersCtrl", "responseMethod" => "pageCustomersSingle", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\Auth\Logined"]],
+	
+	["method" => "get", 'path' => "/page/customers/data", "controller" => "PurchaseSalesInventory\Controllers\Customers\CustomersCtrl", "responseMethod" => "pageCustomersDataView", "middlewareLayers" => ["PurchaseSalesInventory\Middleware\Auth\Logined"]],
 ];
 
 foreach ($routersPages as $routerPage) {
